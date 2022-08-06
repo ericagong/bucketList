@@ -1,16 +1,16 @@
 import Layout from "../components/Styled/Layout";
 import Header from "../components/Common/Header";
-import DetailLayout from "../components/Post/DetailLayout";
+import PostsLayout from "../components/Post/PostsLayout";
 
-const Detail = (props) => {
+const Posts = (props) => {
   return (
     <>
       <Layout>
         <Header />
-        <DetailLayout />
+        <PostsLayout />
       </Layout>
     </>
   );
 };
 
-export default Detail;
+export default Posts;
