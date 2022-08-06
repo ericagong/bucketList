@@ -1,0 +1,60 @@
+{
+  "posts": [
+    {
+      "id": 2,
+      "username": "ericagong",
+      "title": "hi",
+      "contents": "Good to see you guys:)3"
+    },
+    {
+      "id": 3,
+      "username": "ericagong",
+      "title": "hi",
+      "contents": "Good to see you guys:)3"
+    },
+    {
+      "id": 4,
+      "username": "ericagong",
+      "title": "hi",
+      "contents": "Good to see you guys:)3"
+    },
+    {
+      "username": "dd",
+      "title": "ddddd",
+      "contents": "ddd",
+      "id": 5
+    },
+    {
+      "username": "sdfa",
+      "title": "asdfadf",
+      "contents": "asdfasdfadf",
+      "id": 6
+    },
+    {
+      "username": "asdfasdf",
+      "title": "asdfasdf",
+      "contents": "asdfadsf",
+      "id": 7
+    },
+    {
+      "username": "하이",
+      "title": "test",
+      "contents": "ytuytutasdfafd",
+      "id": 8
+    }
+  ],
+  "comments": [
+    {
+      "id": 3,
+      "post_id": 1,
+      "username": "ericagong",
+      "contents": "Good to see you guys:)3"
+    },
+    {
+      "id": 4,
+      "post_id": 1,
+      "username": "ericagong",
+      "contents": "Good to see you guys:)3"
+    }
+  ]
+}
