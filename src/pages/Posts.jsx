@@ -1,16 +1,16 @@
 import Layout from "../components/Styled/Layout";
 import Header from "../components/Common/Header";
-import HomeLayout from "../components/Styled/HomeLayout";
+import PostsLayout from "../components/Post/PostsLayout";
 
-const Home = (props) => {
+const Posts = (props) => {
   return (
-    <div>
+    <>
       <Layout>
         <Header />
-        <HomeLayout />
+        <PostsLayout />
       </Layout>
-    </div>
+    </>
   );
 };
 
-export default Home;
+export default Posts;
