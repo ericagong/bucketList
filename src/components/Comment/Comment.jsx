@@ -73,7 +73,6 @@ const Comment = () => {
                     <Button
                       onClick={() => onEdit(value.id)}
                       name={value.body}
-                      key={id}
                       contents='수정하기'>
                     </Button>
                     <Button onClick={() => onDelete()}  contents='삭제하기'></Button>
