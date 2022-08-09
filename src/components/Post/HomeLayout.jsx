@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import Category from "../Post/Category";
+import Category from "./Category";
 
 const HomeLayout = (props) => {
   return (
@@ -23,10 +23,12 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: teal;
 `;
 
 const Helper = styled.h3`
   height: 10%;
   padding-top: 20px;
   font-weight: bold;
+  font-size: 1.5rem;
 `;
