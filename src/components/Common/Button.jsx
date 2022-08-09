@@ -2,10 +2,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 
 // TODO null visibility: none 차이
-const Button = ({ contents, icon, onClick }) => {
+const Button = ({ contents, icon, size, onClick }) => {
   return (
     <Wrapper onClick={onClick}>
-      {icon ? <Icon icon={icon} /> : null}
+      {icon ? <Icon icon={icon} size={size} /> : null}
       {contents ? <Btn>{contents}</Btn> : null}
     </Wrapper>
   );
