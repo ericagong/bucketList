@@ -6,6 +6,7 @@ import Post from "./Post";
 import Wrapper from "../Styled/Wrapper";
 import { Helper1, Helper2 } from "../Styled/Helpers";
 
+// TODO infinite scroll
 const PostsLayout = (props) => {
   const dispatch = useDispatch();
 
