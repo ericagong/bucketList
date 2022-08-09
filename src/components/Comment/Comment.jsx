@@ -8,74 +8,79 @@ const Comment = () => {
     /* const post = useSelector((state) =>  state.posts.post)
     console.log(post) */
     const { post_id } = useParams();
-
     const dispatch = useDispatch();
-    
     const comment = useSelector((state) => state.comments.comments)
     const commentList = comment.filter((data) => {
-      return data.postId === post_id*1
+      return data.post_id === parseInt(post_id)
     });
-    console.log(commentList)
-    //console.log(comment)
-    const [isEdit, setIsEdit] = useState(false);
-    const [newbody, setNewBody] = useState("");
+/*     console.log(commentList)
+    console.log(comment)
+    */
+    const [contents, setContents] = useState("");
+    const [commentNum, setCommentNum] = useState(-1);
+    
+    console.log(comment.target)
     
     useEffect(() => {
       dispatch(__getComments());
-    }, [dispatch]);
+    }, [dispatch],);
   
-    const onEdit = () => {
-      
-      setIsEdit(!isEdit)
+    const onEdit = (edit_id) => {
+      setCommentNum(edit_id);
     }
 
     const onDelete = (comment_id) => {
       console.log(comment_id)
       dispatch(__deleteComment(comment_id));
-      window.location.reload();
     }
 
     const onChangeHandler = (e) =>{
       const value = e.target.value;
-      setNewBody(value);
+      setContents(value);
     }
-    const onEditComment = () => {
-      dispatch(__editComment({
-              id: commentList.id,
-              body: newbody,
-              postId: post_id,
-              username: commentList.username
-          })
-      );
-      setIsEdit(false);
+    const onEditComment = (comment_id) => {
+      if(!contents){
+        alert("내용이 비어있습니다.");
+        return;
+      }
+      const edit_comment = {
+        comment_id,
+        edit_body: {
+          contents: contents,
+          post_id: parseInt(post_id),
+          username: commentList.username
+        }
+      }
+      dispatch(__editComment(edit_comment));
+      setCommentNum();
+      setContents("");
     }  
     return (
         <>
           comment List 
-            {commentList.map( value => 
-              <div key={value.id}>
-                {console.log(value.id, isEdit)}
-                {isEdit ? (
+            {commentList.map((comment) => 
+              <div key={comment.id}>
+                {commentNum === comment.id ? (
                   <div>
                   <input
                     type="text"
-                    //maxLength={100}
-                    onChange={(e)=> {
-                      onChangeHandler(e.target.value)
-                    }}/>
+                    maxLength={100}
+                    value={contents}
+                    onChange={onChangeHandler}/>
                   <Button onClick={onEdit} contents='취소'></Button>
-                  <Button onClick={()=>onEditComment(value.id)} contents='수정'></Button>
+                  <Button onClick={()=>onEditComment(comment.id)} contents='수정'></Button>
                 </div>
                   ) : (
                   <div>
-                    <p>{value.username}</p>
-                    <span>{value.body}</span>
+                    <p>{comment.username}</p>
+                    <span>{comment.contents}</span>
                     <Button
-                      onClick={() => onEdit(value.id)}
-                      name={value.body}
+                      onClick={() => onEdit(comment.id)}
                       contents='수정하기'>
                     </Button>
-                    <Button onClick={() => onDelete()}  contents='삭제하기'></Button>
+                    <Button
+                      onClick={() => onDelete(comment.id)}
+                      contents='삭제하기'></Button>
                   </div>
                 )}
               </div>

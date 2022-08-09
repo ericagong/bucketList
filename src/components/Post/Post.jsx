@@ -1,14 +1,20 @@
 import { useNavigate } from "react-router-dom";
-import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
-import Button from "../Common/Button";
 import { useDispatch } from "react-redux";
 import { __deletePost } from "../../redux/modules/posts";
+
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import styled from "styled-components";
+
+import { SmallBox } from "../Styled/Boxes";
+import { Helper3, Helper4 } from "../Styled/Helpers";
+import Button from "../Common/Button";
 
 const Post = ({ id, username, title }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const onClickHandler = () => {
+    console.log("clicked");
     navigate(`/detail/${id}`);
   };
 
@@ -24,13 +30,32 @@ const Post = ({ id, username, title }) => {
 
   return (
     <>
-      <div onClick={onClickHandler}>
-        <div>{title}</div>
-        <div>Creator: {username}</div>
-      </div>
-      <Button onClick={onDeleteHandler} icon={faTrashCan} />
+      <SmallBox>
+        <Clickable onClick={onClickHandler}>
+          <Helper3>{title}</Helper3>
+          <Helper4>Creator: {username}</Helper4>
+        </Clickable>
+        <Wrapper>
+          <Button onClick={onDeleteHandler} icon={faTrashCan} inBox={true} />
+        </Wrapper>
+      </SmallBox>
     </>
   );
 };
 
 export default Post;
+
+const Clickable = styled.div`
+  padding-left: 5vw;
+  margin-right: auto;
+  &:hover {
+    cursor: pointer;
+    color: ${(props) => props.theme.hoverColor};
+  }
+`;
+
+const Wrapper = styled.div`
+  padding-right: 0px;
+  margin-left: auto;
+  padding-right: 3vw;
+`;

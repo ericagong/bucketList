@@ -3,7 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { __getPosts } from "../../redux/modules/posts";
 
 import Post from "./Post";
+import Wrapper from "../Styled/Wrapper";
+import { Helper1, Helper2 } from "../Styled/Helpers";
 
+// TODO infinite scroll
 const PostsLayout = (props) => {
   const dispatch = useDispatch();
 
@@ -24,13 +27,14 @@ const PostsLayout = (props) => {
       title={post.title}
     />
   ));
+
   return (
-    <>
-      PostLayout
-      {isLoading ? <div>In Loading...</div> : null}
-      {error ? <div>{error.message}</div> : null}
+    <Wrapper>
+      <Helper1>All Posts</Helper1>
+      {isLoading ? <Helper2>In Loading...</Helper2> : null}
+      {error ? <Helper2>{error.message}</Helper2> : null}
       {!isLoading && !error ? posts : null}
-    </>
+    </Wrapper>
   );
 };
 

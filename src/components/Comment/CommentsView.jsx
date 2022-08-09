@@ -9,7 +9,7 @@ const CommentsView = () => {
     const dispatch = useDispatch();
     const { post_id } = useParams();
     const [username, setUsername] = useState("");
-    const [body, setBody] = useState("");
+    const [contents, setContents] = useState("");
 
     const onChangeHandler = (e) =>{
         const id = e.target.id;
@@ -18,23 +18,23 @@ const CommentsView = () => {
             return;
         }else{
             if(id === "username") setUsername(value);
-            else setBody(value);
+            else setContents(value);
         }
     }
 
     const onSubmitHandler = (e) =>{
         e.preventDefault();
-        if (!username || !body){
+        if (!username || !contents){
             return;
         }
         const new_comment = {
-            postId : post_id*1,
+            post_id : parseInt(post_id),
             username,
-            body,
+            contents,
         };
         dispatch(__createComment(new_comment));
-        setUsername("")
-        setBody("")
+        setUsername("");
+        setContents("");
         }
 
     return (
@@ -46,12 +46,14 @@ const CommentsView = () => {
                     placeholder='이름 (5자이내)'
                     maxLength={5}
                     id='username'
+                    value={username}
                     onChange={onChangeHandler}/>
 
                 <input
                     type="text"
                     placeholder='댓글을 추가하세요. (100자 이내)'
                     id= 'body'
+                    value={contents}
                     maxLength={100}
                     onChange={onChangeHandler}/>
                 <Button onClick={onSubmitHandler} contents='add comment'/>
