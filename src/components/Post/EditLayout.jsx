@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { __getPost, __editPost } from "../../redux/modules/posts";
 import Button from "../Common/Button";
+import styled from "styled-components";
 
 const EditLayout = (props) => {
   const { post_id } = useParams();
@@ -39,13 +40,38 @@ const EditLayout = (props) => {
   };
 
   return (
-    <>
+    <StEditLayout>
       Edit Layout
-      {post ? <h3>{post.title}</h3> : null}
-      <textarea value={contents} onChange={onChangeHandler} />
-      <Button onClick={onSubmitHandler} contents='Save Edit' />
-    </>
+      <StEdit>
+        {post ? <h3>{post.title}</h3> : null}
+        <textarea value={contents} onChange={onChangeHandler} />
+        <Button onClick={onSubmitHandler} contents='Save Edit' />
+      </StEdit>
+    </StEditLayout>
   );
 };
+
+const StEditLayout = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  font-size: 20px;
+`
+const StEdit = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  textarea {
+    resize: none;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    height: 100px;
+    margin-bottom: 50px;
+  }
+`
+
+
 
 export default EditLayout;
