@@ -12,6 +12,7 @@ const Box = styled.div`
   height: 90vh;
   max-width: 1200px;
   max-height: 700px;
+  min-height: 500px;
   margin: auto;
   margin-top: 5vh;
   background-color: ${(props) => props.theme.backgroundColor};

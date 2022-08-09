@@ -14,7 +14,7 @@ const Header = (props) => {
   return (
     <Navigator>
       <GoHome>
-        <Button icon={faHome} onClick={onClickHandler} />
+        <Button icon={faHome} size={"lg"} onClick={onClickHandler} />
       </GoHome>
       <Project>Project Name</Project>
     </Navigator>
@@ -28,7 +28,7 @@ const Navigator = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  height: 40px;
+  height: 10vh;
 `;
 
 const GoHome = styled.div`
