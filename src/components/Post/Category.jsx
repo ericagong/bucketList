@@ -4,6 +4,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleRight } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
 
+import { Box } from "../Styled/Boxes";
+import { Helper2 } from "../Styled/Helpers";
+
 const Category = (props) => {
   const navigate = useNavigate();
   const onClickHandler = () => {
@@ -11,36 +14,15 @@ const Category = (props) => {
   };
 
   return (
-    <Wrapper onClick={onClickHandler}>
-      <Helper>{props.contents}</Helper>
+    <Box onClick={onClickHandler}>
+      <Helper2>{props.contents}</Helper2>
       <Icon icon={faArrowAltCircleRight} size='lg' />
-    </Wrapper>
+    </Box>
   );
 };
 
 export default Category;
 
-const Wrapper = styled.div`
-  width: 60vw;
-  height: 30vh;
-  margin: 5vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-  box-shadow: 1px 1px 5px gray;
-  background-color: ${(props) => props.theme.boxColor};
-  &:hover {
-    cursor: pointer;
-    background-color: ${(props) => props.theme.hoverColor};
-    color: ${(props) => props.theme.buttonTextColor};
-  }
-`;
-
 const Icon = styled(FontAwesomeIcon)`
   padding-left: 30px;
-`;
-
-const Helper = styled.div`
-  font-size: 1.2rem;
 `;

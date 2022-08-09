@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { __getPosts } from "../../redux/modules/posts";
 
-import styled from "styled-components";
-
 import Post from "./Post";
+import Wrapper from "../Styled/Wrapper";
+import { Helper1, Helper2 } from "../Styled/Helpers";
 
 const PostsLayout = (props) => {
   const dispatch = useDispatch();
@@ -29,15 +29,12 @@ const PostsLayout = (props) => {
 
   return (
     <Wrapper>
-      {isLoading ? <div>In Loading...</div> : null}
-      {error ? <div>{error.message}</div> : null}
+      <Helper1>All Posts</Helper1>
+      {isLoading ? <Helper2>In Loading...</Helper2> : null}
+      {error ? <Helper2>{error.message}</Helper2> : null}
       {!isLoading && !error ? posts : null}
     </Wrapper>
   );
 };
 
 export default PostsLayout;
-
-const Wrapper = styled.div`
-  background-color: tomato;
-`;

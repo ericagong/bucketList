@@ -1,8 +1,12 @@
 import { useNavigate } from "react-router-dom";
-import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
-import Button from "../Common/Button";
 import { useDispatch } from "react-redux";
 import { __deletePost } from "../../redux/modules/posts";
+
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import styled from "styled-components";
+
+import { SmallBox } from "../Styled/Boxes";
+import Button from "../Common/Button";
 
 const Post = ({ id, username, title }) => {
   const navigate = useNavigate();
@@ -24,13 +28,17 @@ const Post = ({ id, username, title }) => {
 
   return (
     <>
-      <div onClick={onClickHandler}>
-        <div>{title}</div>
-        <div>Creator: {username}</div>
-      </div>
-      <Button onClick={onDeleteHandler} icon={faTrashCan} />
+      <SmallBox>
+        <Clickable onClick={onClickHandler}>
+          <div>{title}</div>
+          <div>Creator: {username}</div>
+        </Clickable>
+        <Button onClick={onDeleteHandler} icon={faTrashCan} />
+      </SmallBox>
     </>
   );
 };
 
 export default Post;
+
+const Clickable = styled.div``;
