@@ -45,7 +45,6 @@ const CreateLayout = (props) => {
 
   return (
     <div>
-      CreateLayout
       <form onSubmit={onSubmitHandler}>
         <label htmlFor='username'>Username</label>
         <input type='text' id='username' onChange={onChangeHandler} />

@@ -24,6 +24,7 @@ const PostsLayout = (props) => {
       title={post.title}
     />
   ));
+
   return (
     <>
       PostLayout
