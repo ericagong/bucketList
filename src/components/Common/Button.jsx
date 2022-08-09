@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // TODO null visibility: none 차이
-const Button = ({ contents, icon, onClick }) => {
+const Button = ({ contents, icon, onClick}) => {
   return (
     <div onClick={onClick}>
       {icon ? <FontAwesomeIcon icon={icon} /> : null}
