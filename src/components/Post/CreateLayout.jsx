@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Button from "../Common/Button";
+import styled from "styled-components";
 
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -45,17 +46,44 @@ const CreateLayout = (props) => {
 
   return (
     <div>
-      <form onSubmit={onSubmitHandler}>
+      <StForm onSubmit={onSubmitHandler}>
         <label htmlFor='username'>Username</label>
         <input type='text' id='username' onChange={onChangeHandler} />
         <label htmlFor='title'>Title</label>
         <input type='text' id='title' onChange={onChangeHandler} />
         <label htmlFor='contents'>Contents</label>
-        <input type='text' id='contents' onChange={onChangeHandler} />
+        <textarea type='text' id='contents' onChange={onChangeHandler} />
         <Button onClick={onSubmitHandler} contents='Submit' />
-      </form>
+      </StForm>
     </div>
   );
 };
+
+const StForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+  label {
+    margin-bottom: 10px;
+  }
+  input {
+    width: 100%;
+    height: 25px;
+    font-size: 20px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 10px;
+  }
+  textarea {
+    width: 100%;
+    resize: none;
+    height: 100px;
+    border-radius: 5px;
+    border: none;
+    font-size: 20px;
+    margin-bottom: 50px;
+  }
+`
 
 export default CreateLayout;
