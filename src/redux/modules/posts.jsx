@@ -61,6 +61,7 @@ export const __editPost = createAsyncThunk(
   async (edit_info, thunkAPI) => {
     try {
       const { post_id, edit_post } = edit_info;
+      console.log(post_id)
       const response = await axios.patch(
         `http://localhost:3001/posts/${post_id}`,
         edit_post

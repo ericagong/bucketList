@@ -28,7 +28,6 @@ export const __createComment = createAsyncThunk(
   "comments/__createComment",
   async (new_comment, thunkAPI) => {
     try {
-        console.log(new_comment);
         const response = await axios.post(
             "http://localhost:3001/comments",
             new_comment
@@ -63,7 +62,7 @@ export const __editComment = createAsyncThunk(
                 `http://localhost:3001/comments/${comment_id}`,
                 edit_body
             );
-            const edit_id = response.data.id;
+            const edit_id = response.data;
             return thunkAPI.fulfillWithValue(edit_id);
         } catch(error){
             return thunkAPI.rejectWithValue(error);
@@ -106,18 +105,27 @@ const commentSlice = createSlice({
         [__deleteComment.fulfilled]: (state, action) => {
             console.log('fulfilled 상태', state, action);
             state.isLoading = false;
-            state.success = action.payload;
-            state.comments.push(action.payload);
+            const target = state.comments.findIndex(
+                (comment) => comment.id === action.payload
+            );
+            state.comments.splice(target, 1);
+            
         },
         [__deleteComment.rejected]: (state, action) => {
             state.isLoading = false;
-            state.error = action.payload
+            state.error = action.payload;
         },[__editComment.pending]: (state, action) => {
             state.isLoading = true;
         },
         [__editComment.fulfilled]: (state, action) => {
             state.isLoading = false;
             state.success = action.payload;
+            /* const target = state.comments.findIndex(
+                (comment) => comment.id === action.payload.id
+              );
+              console.log(target)
+              state.comments.splice(target, 1, action.payload); */
+
         },
         [__editComment.rejected]: (state, action) => {
             state.isLoading = false;
