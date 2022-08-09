@@ -4,12 +4,12 @@ import HomeLayout from "../components/Styled/HomeLayout";
 
 const Home = (props) => {
   return (
-    <div>
+    <>
       <Layout>
         <Header />
         <HomeLayout />
       </Layout>
-    </div>
+    </>
   );
 };
 
