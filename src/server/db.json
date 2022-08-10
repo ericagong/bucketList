@@ -19,28 +19,10 @@
       "contents": "Good to see you guys:)3"
     },
     {
-      "username": "dd",
-      "title": "ddddd",
-      "contents": "ddd",
+      "username": "asda",
+      "title": "asdasd",
+      "contents": "asdasdasd",
       "id": 5
-    },
-    {
-      "username": "sdfa",
-      "title": "asdfadf",
-      "contents": "asdfasdfadf",
-      "id": 6
-    },
-    {
-      "username": "asdfasdf",
-      "title": "asdfasdf",
-      "contents": "asdfadsf",
-      "id": 7
-    },
-    {
-      "username": "하이",
-      "title": "test",
-      "contents": "ytuytutasdfafd",
-      "id": 8
     }
   ],
   "comments": [
@@ -55,6 +37,12 @@
       "post_id": 1,
       "username": "ericagong",
       "contents": "Good to see you guys:)3"
+    },
+    {
+      "postId": 4,
+      "username": "asd",
+      "contents": "1123123",
+      "id": 5
     }
   ]
 }

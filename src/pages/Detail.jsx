@@ -1,14 +1,14 @@
 import Layout from "../components/Styled/Layout";
 import Header from "../components/Common/Header";
 import DetailLayout from "../components/Post/DetailLayout";
-import Comments from "../components/Comment/Comments";
+import CommentsView from "../components/Comment/CommentsView";
 const Detail = (props) => {
   return (
     <>
       <Layout>
         <Header />
         <DetailLayout />
-        <Comments/>
+        <CommentsView/>
       </Layout>
     </>
   );

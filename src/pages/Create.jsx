@@ -5,7 +5,6 @@ import CreateLayout from "../components/Post/CreateLayout";
 const Create = (props) => {
   return (
     <>
-      Create
       <Layout>
         <Header />
         <CreateLayout />
