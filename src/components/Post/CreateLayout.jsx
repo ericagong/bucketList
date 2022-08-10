@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { __createPost } from "../../redux/modules/posts";
+import { useForm } from "react-hook-form";
 
 // TODO formilk 사용해보기
 // TODO change with useInput hook
@@ -12,6 +13,8 @@ import { __createPost } from "../../redux/modules/posts";
 const CreateLayout = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { register, watch, formState: { errors }, handleSubmit } = useForm();
+  console.log(watch('name'))
 
   const [username, setUsername] = useState("");
   const [title, setTitle] = useState("");
@@ -48,12 +51,21 @@ const CreateLayout = (props) => {
     <div>
       <StForm onSubmit={onSubmitHandler}>
         <label htmlFor='username'>Username</label>
-        <input type='text' id='username' onChange={onChangeHandler} />
+        <input name="name" type='text' id='username' onChange={onChangeHandler} {...register("name", { required: true, maxLength: 10 })}/>
+        {errors.name && errors.name.type === "required"&&<p>This field is required</p>}
+        {errors.name && errors.name.type === "maxLength"&&<p>Your name exceed maximum length</p>}
+
         <label htmlFor='title'>Title</label>
-        <input type='text' id='title' onChange={onChangeHandler} />
+        <input name="title" type='text' id='title' onChange={onChangeHandler} {...register("name", { required: true, maxLength: 10 })}/>
+        {errors.title && errors.title.type === "required"&&<p>This field is required</p>}
+        {errors.title && errors.title.type === "maxLength"&&<p>Your title exceed maximum length</p>}
+
         <label htmlFor='contents'>Contents</label>
-        <textarea type='text' id='contents' onChange={onChangeHandler} />
-        <Button onClick={onSubmitHandler} contents='Submit' />
+        <textarea name="contents" type='text' id='contents' onChange={onChangeHandler} {...register("name", { required: true, maxLength: 10 })}/>
+        {errors.contents && errors.contents.type === "required"&&<p>This field is required</p>}
+        {errors.contents && errors.contents.type === "maxLength"&&<p>Your contents exceed maximum length</p>}
+
+        <Button contents='Submit' />
       </StForm>
     </div>
   );
