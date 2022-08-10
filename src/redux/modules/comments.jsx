@@ -108,8 +108,7 @@ const commentSlice = createSlice({
             const target = state.comments.findIndex(
                 (comment) => comment.id === action.payload
             );
-            state.comments.splice(target, 1);
-            
+            state.comments.splice(target, 1);  
         },
         [__deleteComment.rejected]: (state, action) => {
             state.isLoading = false;
@@ -120,12 +119,11 @@ const commentSlice = createSlice({
         [__editComment.fulfilled]: (state, action) => {
             state.isLoading = false;
             state.success = action.payload;
-            /* const target = state.comments.findIndex(
+            const target = state.comments.findIndex(
                 (comment) => comment.id === action.payload.id
               );
               console.log(target)
-              state.comments.splice(target, 1, action.payload); */
-
+              state.comments.splice(target, 1, action.payload);
         },
         [__editComment.rejected]: (state, action) => {
             state.isLoading = false;

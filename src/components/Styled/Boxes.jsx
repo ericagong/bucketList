@@ -9,14 +9,15 @@ export const SmallBox = (props) => {
 };
 
 const Wrapper = styled.div`
-  width: 60vw;
-  height: 30vh;
-  margin: 5vh;
+  width: 85%;
+  padding: 30px 10px;
+  margin: 25px 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 5px;
-  box-shadow: 1px 1px 5px gray;
+  transition: all .3s;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
   background-color: ${(props) => props.theme.boxColor};
   &:hover {
     cursor: pointer;

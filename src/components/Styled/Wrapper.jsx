@@ -7,10 +7,8 @@ const Wrapper = (props) => {
 export default Wrapper;
 
 const W = styled.div`
-  width: 70vw;
   height: 80vh;
-  max-width: 1000px;
-  max-height: 700px;
+  max-height: 559px;
   margin: auto;
   display: flex;
   flex-direction: column;
