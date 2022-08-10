@@ -1,6 +1,5 @@
 {
   "posts": [
-    [
       {
         "id": 1,
         "username": "Fanechka",
@@ -301,10 +300,8 @@
         "title": "ut",
         "contents": "Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh."
       }
-    ]
   ],
   "comments": [
-    [
       {
         "id": 1,
         "postId": 5,
@@ -905,6 +902,5 @@
         "username": "Robinet",
         "contents": "In congue. Etiam justo. Etiam pretium iaculis justo."
       }
-    ]
   ]
 }
