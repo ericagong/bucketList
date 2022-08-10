@@ -1,64 +1,65 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Button from '../Common/Button';
 import { useDispatch } from 'react-redux';
 import { __createComment } from '../../redux/modules/comments';
-import { useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import { useForm } from "react-hook-form";
 
 
 const CommentForm = () => {
     const dispatch = useDispatch();
     const { post_id } = useParams();
-    const [username, setUsername] = useState("");
-    const [contents, setContents] = useState("");
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
-    const onChangeHandler = (e) =>{
-        const id = e.target.id;
-        const value = e.target.value;
-        if (!value){
-            return;
-        }else{
-            if(id === "username") setUsername(value);
-            else setContents(value);
+    const black_pattern = /^\s+|\s+$/g;
+
+    const onSubmit = (data) => {
+        if (data.username.replace(black_pattern, '') === "") {
+            alert("Only spaces were entered in the username")
+            return
+        } else if (data.contents.replace(black_pattern, '') === "") {
+            alert("Only spaces were entered in the contents")
+            return
+        } else {
+            const new_comment = {
+                postId: parseInt(post_id),
+                username: data.username,
+                contents: data.contents,
+            }
+            dispatch(__createComment(new_comment));
+            reset({ username: "", contents: "" })
         }
     }
+    const onError = (errors, e) => console.log(errors, e);
 
-    const onSubmitHandler = (e) =>{
-        e.preventDefault();
-        if (!username || !contents){
-            return;
-        }
-        const new_comment = {
-            postId : parseInt(post_id),
-            username,
-            contents,
-        };
-        dispatch(__createComment(new_comment));
-        setUsername("");
-        setContents("");
-        }
+
     return (
         <>
-             <form onSubmit= {onSubmitHandler}>
+            <form onSubmit={handleSubmit(onSubmit, onError)}>
                 <FormDiv>
                     <div>
                         <FormUsername
                             type="text"
                             placeholder='이름 (5자이내)'
-                            maxLength={5}
                             id='username'
-                            value={username}
-                            onChange={onChangeHandler}/>
-
+                            {...register("username", { required: true, maxLength: 20 })}
+                        />
                         <FormComment
                             type="text"
                             placeholder='댓글을 추가하세요. (100자 이내)'
-                            id= 'body'
-                            value={contents}
-                            maxLength={100}
-                            onChange={onChangeHandler}/>
+                            id='body'
+                            {...register("contents", { required: true, maxLength: 100 })}
+                        />
+                        {errors.username && errors.username.type === "required" && <p>This field is required</p>}
+                        {errors.username && errors.username.type === "maxLength" && <p>Your name exceed maximum length</p>}
+                        {errors.contents && errors.contents.type === "required" && <p>This field is required</p>}
+                        {errors.contents && errors.contents.type === "maxLength" && <p>Your contents exceed maximum length</p>}
+
+
+
                     </div>
-                    <Button onClick={onSubmitHandler} contents='add comment'/>
+                    <Button contents='add comment' />
                 </FormDiv>
             </form>
         </>
@@ -72,6 +73,13 @@ const FormDiv = styled.div`
     justify-content: space-between;
     padding-bottom: 20px;
     border-bottom: 1px solid #8181811d;
+    div {
+        p {
+            display: inline-block;
+            color: red;
+            margin: 0px 20px;
+        }
+    }
 `
 
 const FormUsername = styled.input`

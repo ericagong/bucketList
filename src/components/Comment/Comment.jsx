@@ -26,9 +26,16 @@ const Comment = ({comment}) => {
       const value = e.target.value;
       setContents(value);
     }
+
+    const black_pattern = /^\s+|\s+$/g;
+
     const onEditComment = (comment_id) => {
       if(!contents){
         alert("내용이 비어있습니다.");
+        return;
+      }
+      if(contents.replace(black_pattern, '') === "") {
+        alert("Only spaces were entered in the comments");
         return;
       }
       const edit_comment = {
