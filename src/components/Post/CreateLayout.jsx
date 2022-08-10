@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Button from "../Common/Button";
 import styled from "styled-components";
 
@@ -35,7 +35,6 @@ const CreateLayout = (props) => {
     }
   }
   const onError = (errors, e) => console.log(errors, e);
-  // 마스터 브랜치
 
 return (
   <div>
