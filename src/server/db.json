@@ -1,12 +1,6 @@
 {
   "posts": [
     {
-      "id": 1,
-      "username": "ericagong",
-      "title": "hi",
-      "contents": "Good to see you guys:)3"
-    },
-    {
       "id": 2,
       "username": "ericagong",
       "title": "hi",
@@ -23,20 +17,32 @@
       "username": "ericagong",
       "title": "hi",
       "contents": "Good to see you guys:)3"
+    },
+    {
+      "username": "asda",
+      "title": "asdasd",
+      "contents": "asdasdasd",
+      "id": 5
     }
   ],
   "comments": [
     {
       "id": 3,
-      "postId": 1,
+      "post_id": 1,
       "username": "ericagong",
       "contents": "Good to see you guys:)3"
     },
     {
       "id": 4,
-      "postId": 1,
+      "post_id": 1,
       "username": "ericagong",
       "contents": "Good to see you guys:)3"
+    },
+    {
+      "postId": 4,
+      "username": "asd",
+      "contents": "1123123",
+      "id": 5
     }
   ]
 }

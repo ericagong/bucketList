@@ -13,9 +13,11 @@ const Box = styled.div`
   max-width: 1200px;
   max-height: 700px;
   min-height: 500px;
+  padding: 40px;
+  box-sizing: border-box;
   margin: auto;
   margin-top: 5vh;
   background-color: ${(props) => props.theme.backgroundColor};
   border-radius: 10px;
-  box-shadow: 1px 1px 5px gray;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 `;

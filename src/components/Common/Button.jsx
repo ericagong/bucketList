@@ -25,8 +25,12 @@ const Icon = styled(FontAwesomeIcon)`
 `;
 
 const Btn = styled.button`
+  padding: 10px 30px;
+  margin: 5px 10px;
+  border-radius: 50px;
+  transition: all .3s;
   border: none;
-  box-shadow: 1px 1px 5px gray;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   &:hover {
     cursor: pointer;
     background-color: ${(props) => props.theme.hoverColor};
