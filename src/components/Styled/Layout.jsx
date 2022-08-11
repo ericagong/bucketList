@@ -20,4 +20,6 @@ const Box = styled.div`
   background-color: ${(props) => props.theme.backgroundColor};
   border-radius: 10px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  position: relative;
+  overflow: hidden;
 `;
