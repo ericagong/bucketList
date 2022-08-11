@@ -11,7 +11,7 @@ const Comment = ({comment}) => {
     const dispatch = useDispatch();
     const [contents, setContents] = useState("");
     const [commentNum, setCommentNum] = useState(-1);
-    
+
   
     const onEdit = (edit_id) => {
       setCommentNum(edit_id);
@@ -53,7 +53,6 @@ const Comment = ({comment}) => {
     return (
         <>
             {commentNum === comment.id ? (
-              <CommentListOne>
                 <CommentListDiv>
                   <div>
                   <Username>{comment.username}</Username>
@@ -68,9 +67,7 @@ const Comment = ({comment}) => {
                     <Button onClick={()=>onEditComment(comment.id)} contents='수정'></Button>
                   </div>
               </CommentListDiv>
-            </CommentListOne>
               ) : (
-              <CommentListOne>
                 <CommentListDiv>
                   <div>
                     <Username>{comment.username}</Username>
@@ -87,7 +84,6 @@ const Comment = ({comment}) => {
                     </Button>
                   </div>
                 </CommentListDiv>
-              </CommentListOne>
             )}
         </>
     );
@@ -95,24 +91,39 @@ const Comment = ({comment}) => {
 
 export default Comment;
 
-const CommentListOne =styled.div`
-margin: 10px 0;
-`
 
 const CommentListDiv = styled.div `
 display: flex;
 align-items: center;
 justify-content: space-between;
+margin: 10px 0;
 
+>div:last-of-type{
+  width: 409px;
+  justify-content: flex-end;
+}
 div{
   display: flex;
   align-items: center;
 }
+
+@media screen and (max-width: 1250px) {
+        flex-direction: column;
+        align-items: flex-end;
+        >div:first-of-type {
+          display: block;
+          width: 100%;
+          div {
+            margin: 0 0 15px 0;
+          }
+        }
+    }
 `
 const Username = styled.div`
   font-size: 0.7rem;
   width: 140px;
   margin-right: 10px;
+  
 `
 
 const FormComment =  styled.input`
@@ -120,4 +131,8 @@ const FormComment =  styled.input`
     padding: 10px 30px;
     border-radius: 50px;
     border: none;
+    @media screen and (max-width: 1250px) {
+        width: calc(100% - 80px);
+    }
 `
+
