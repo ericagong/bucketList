@@ -46,7 +46,7 @@ const Post = ({ id, username, title }) => {
 export default Post;
 
 const Clickable = styled.div`
-  padding-left: 5vw;
+  padding-left: 5%;
   margin-right: auto;
   &:hover {
     cursor: pointer;
@@ -57,5 +57,5 @@ const Clickable = styled.div`
 const Wrapper = styled.div`
   padding-right: 0px;
   margin-left: auto;
-  padding-right: 3vw;
+  padding-right: 3%;
 `;

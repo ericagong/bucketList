@@ -29,8 +29,8 @@ const Wrapper = styled.div`
 // TODO change this to infibite scroll
 // TODO height 조정안됨!
 const SmallWrapper = styled(Wrapper)`
-  width: 60vw;
-  height: 20vh;
+  width: 80%;
+  height: 20%;
   &:hover {
     cursor: default;
     background-color: ${(props) => props.theme.boxColor};
