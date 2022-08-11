@@ -21,7 +21,7 @@
     {
       "username": "asda",
       "title": "asdasd",
-      "contents": "asdasdasd",
+      "contents": "asdasd",
       "id": 5
     }
   ],
@@ -43,6 +43,24 @@
       "username": "asd",
       "contents": "1123123",
       "id": 5
+    },
+    {
+      "postId": 2,
+      "username": "asd",
+      "contents": "asdasd",
+      "id": 14
+    },
+    {
+      "postId": 2,
+      "username": "asda",
+      "contents": "sdasdd",
+      "id": 15
+    },
+    {
+      "postId": 5,
+      "username": "asd",
+      "contents": "asdzxcz czxcz",
+      "id": 16
     }
   ]
 }

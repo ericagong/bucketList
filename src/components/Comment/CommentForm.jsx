@@ -69,9 +69,16 @@ export default CommentForm;
 
 const FormDiv = styled.div`
     display: flex;
+    align-items: center;
     justify-content: space-between;
     padding-bottom: 20px;
     border-bottom: 1px solid #8181811d;
+    @media screen and (max-width: 1250px) {
+        display: block;
+        button {
+            margin: 0;
+        }
+    }
 `
 
 const FormUsername = styled.input`
@@ -80,9 +87,15 @@ const FormUsername = styled.input`
     border-radius: 50px;
     border: none;
     margin-right: 10px;
+    @media screen and (max-width: 1250px) {
+        margin-bottom: 10px;
+    }
 `
 
 const FormComment = styled(FormUsername)`
     width: 550px;
     margin-right: 0;
+    @media screen and (max-width: 1250px) {
+        width: calc(100% - 80px);
+    }
 `
