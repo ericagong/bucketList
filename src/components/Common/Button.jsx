@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 
 // TODO null visibility: none 차이
-const Button = ({ contents, icon, size, onClick, inBox, disabled }) => {
+const Button = ({ contents, icon, size, onClick, inBox }) => {
   return (
     <Wrapper onClick={onClick}>
       {icon ? <Icon icon={icon} size={size} /> : null}

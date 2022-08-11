@@ -15,5 +15,4 @@ const W = styled.div`
   align-items: center;
   overflow: auto;
   overflow-x: hidden;
-
 `;
